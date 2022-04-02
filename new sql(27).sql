@@ -1,5 +1,54 @@
 SELECT * FROM travellingdetails.travell1_details;
 
+-- find the highest ticket price from the train details table
+
+SELECT MAX(ticketPrice) AS highest_ticket_price FROM travell1_details;
+
+SELECT MIN(ticketPrice) AS Minimum_ticket_price FROM travell1_details;
+
+SELECT * FROM travell1_details WHERE start_place IS  null;
+
+SELECT * FROM travell1_details WHERE destination_place IS  NOT  null;
+
+SELECT MAX(noOfClasses) AS highest_number_classes FROM travell1_details;
+
+
+SELECT SUM(ticketPrice) AS Total_ticket_price FROM travell1_details;
+
+
+SELECT MIN(ticketPrice) AS Total_ticket_price FROM travell1_details;
+
+SELECT AVG(ticketPrice) AS Total_ticket_price FROM travell1_details;
+
+SELECT AVG(noOfClasses) AS No_of_classes FROM travell1_details;
+
+SELECT MAX(noOfClasses) AS No_of_classes FROM travell1_details;
+
+SELECT MIN(noOfClasses) AS No_of_classes FROM travell1_details;
+
+SELECT SUM(noOfClasses) AS No_of_classes FROM travell1_details;
+
+SELECT COUNT(noOfClasses) AS No_of_classes FROM travell1_details;
+
+
+
+SELECT curdate() AS present_date;
+
+SELECT current_time() AS present_time;
+
+SELECT NOW() AS travell1_details;
+
+
+
+
+
+
+
+
+
+
+
+
 -- second highest ticket price
 SELECT MAX(ticketPrice) AS Second_Highest_TicketPrice FROM travell1_details WHERE ticketPrice<125;
 
