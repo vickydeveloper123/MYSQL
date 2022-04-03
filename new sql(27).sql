@@ -115,8 +115,78 @@ SHOW GRANTS FOR 'sqlUser'@'localhost';
 REVOKE UPDATE ,DELETE ON  travell1_details FROM 'sqlUser'@'localhost'; -- IT IS USED TO REVOKE deleting access .
 
 
+-- 03-04-22 
+INSERT INTO travell1_details(train_number,name,noOfClasses,ticketPrice) VALUE (1998,'HIMALAYAEXPRESS',56,150.00); 
+
+
+INSERT INTO travell1_details(train_number,name,start_place,start_datetime) VALUE(1968,'HIMALAYAEXPRESS','NELLORE','2022-05-06 11:00:00');
+SELECT * FROM travell1_details;
+
+UPDATE travell1_details SET  start_place='NELLORE' WHERE train_number=2345;
+
+UPDATE travell1_details SET destination_place='RAJAMANDRY' WHERE train_number=1111;
+
+COMMIT;
+
+ROLLBACK;
+
+INSERT INTO travell1_details(train_number,name,noOfClasses,ticketPrice,start_place,destination_place,start_datetime,destination_datetime)
+            VALUE(8368,'AP-KA SUPERFAST EXPRESS',100,500,'NELLORE','BANGLORE','2022-03-06 10:00:00', '2022-03-07 12:00:00 ');
+
+SET AUTOCOMMIT=0;
   
   
+SET AUTOCOMMIT=0;
+
+INSERT INTO travell1_details(train_number,name,noOfClasses,ticketPrice,start_place,destination_place,start_datetime,destination_datetime)
+            VALUE(8338,'AP  EXPRESS',144,500,'NELLORE','ONGOLE','2022-03-07 14:00:00', '2022-03-06 15:00:00 ');
+
+rollback;
+
+
+INSERT INTO travell1_details(train_number,name,noOfClasses,ticketPrice,start_place,destination_place,start_datetime,destination_datetime)
+            VALUE(5555,'KA EXPRESS',43,550,'CHITOR','ONGOLE','2022-04-07 14:00:00', '2022-04-08 15:00:00 ');
+            
+SAVEPOINT A;
+
+INSERT INTO travell1_details(train_number,name,noOfClasses,ticketPrice,start_place,destination_place,start_datetime,destination_datetime)
+            VALUE(6666,'CHENNAI  EXPRESS',30,800,'NELLORE','CHENNAI','2022-03-07 16:00:00', '2022-03-08 16:00:00 ');
+SAVEPOINT B;
+
+INSERT INTO travell1_details(train_number,name,noOfClasses,ticketPrice,start_place,destination_place,start_datetime,destination_datetime)
+            VALUE(7777,'MP  EXPRESS',54,900,'MADHYA PRADESH','UTTAR PRADESH','2022-03-04 15:00:00', '2022-03-06 18:00:00 ');
+
+SAVEPOINT C;
+
+ROLLBACK;
+
+SELECT * FROM travell1_details;
+
+INSERT INTO travell1_details(train_number,name,noOfClasses,ticketPrice,start_place,destination_place,start_datetime,destination_datetime)
+            VALUE(5555,'KA EXPRESS',43,550,'CHITOR','ONGOLE','2022-04-07 14:00:00', '2022-04-08 15:00:00 ');
+            
+SAVEPOINT A;
+
+INSERT INTO travell1_details(train_number,name,noOfClasses,ticketPrice,start_place,destination_place,start_datetime,destination_datetime)
+            VALUE(6666,'CHENNAI  EXPRESS',30,800,'NELLORE','CHENNAI','2022-03-07 16:00:00', '2022-03-08 16:00:00 ');
+SAVEPOINT B;
+
+INSERT INTO travell1_details(train_number,name,noOfClasses,ticketPrice,start_place,destination_place,start_datetime,destination_datetime)
+            VALUE(7777,'MP  EXPRESS',54,900,'MADHYA PRADESH','UTTAR PRADESH','2022-03-04 15:00:00', '2022-03-06 18:00:00 ');
+
+SAVEPOINT C;
+
+COMMIT;
+
+SELECT * FROM travell1_details;
+
+
+
+
+
+
+
+
 
 
 
