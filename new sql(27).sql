@@ -180,8 +180,118 @@ COMMIT;
 
 SELECT * FROM travell1_details;
 
+SELECT SUM(ticketPrice) FROM travell1_details;
+-- 20-03-2022  to 09-04-2022
+SELECT  DISTINCT name  FROM  travell1_details WHERE  start_datetime BETWEEN '20-03-2022' AND  '09-04-2022' ;
 
 
+-- SELECT name FROM train_details WHERE start_datetime BETWEEN '2022-03-18' AND '2022-03-20';
+-- SELECT*FROM travel1_details WHERE start_datetime BETWEEN 20-03-2022  AND 09-04-2022;
+
+  SELECT MAX(ticketPrice)
+  FROM travell1_details WHERE start_datetime ORDER BY  '20-03-2022'  AND 09-04-2022;
+  
+  
+  -- (09-04-22)
+  
+CREATE DATABASE onliine_shopping;
+
+USE online_shopping;
+
+ALTER TABLE customers ADD constraint PRIMARY KEY (id);
+
+CREATE TABLE customers(id INT,
+name VARCHAR(50),
+mobile_no BIGINT,
+email_id VARCHAR(50),
+address VARCHAR(50));
+
+
+
+
+INSERT INTO customers VALUES (1,'karthik',12345,'karthik@gmail.com','BANGLORE');
+
+SELECT * FROM customers;
+INSERT INTO customers VALUES (2,'VIGNESH',12346,'vignesh@gmail.com','NELLORE'),
+                      (3,'NEELESH',12346,'neelesh@gmail.com','CHENNAI'),
+                        (4,'RAM',16346,'ram@gmail.com','KOVUR')
+                        ;  
+                        
+CREATE TABLE orders(
+   id INT,
+   amount DOUBLE CHECK(amount>0),
+   no_Of_Item INT,
+   order_dateTime DATETIME,
+   delivery_days INT,
+   customer_ref INT ,
+   
+   FOREIGN KEY (customer_ref) REFERENCES customers(id)
+   
+);
+
+INSERT INTO orders VALUES(1,500.00,1,'2022-4-2 10:30:00',5,1);
+
+INSERT INTO orders VALUES(1,500.00,1,'2022-4-2 10:30:00',5,3);
+
+INSERT INTO orders VALUES
+(1,550.00,2,'2022-4-7 11:30:00',5,1),
+(1,700.00,3,'2022-4-9 10:30:00',9,1),
+(1,800.00,4,'2022-4-6 13:30:00',7,1),
+(1,900.00,4,'2022-4-2 18:30:00',2,1),
+(1,980.00,7,'2022-4-4 14:30:00',4,1),
+(1,580.00,9,'2022-4-8 17:30:00',9,1);
+
+
+
+
+SELECT * FROM orders;
+
+SELECT * FROM customers;
+
+   -- Foriegn key is the key which takes the reference from the another table primary key.alter
+   -- Foreign key has duplicate VALUES.
+  -- IT WILL CHECK WHETEHER DATA PRESENT OR NOT.
+  -- Whether the customer id is present or not if it present it will allow date.
+   
+   
+INSERT INTO orders(id,amount,no_OfItems) VALUES (3,333.00,1);
+
+SELECT * FROM orders WHERE id=2;
+SELECT * FROM customers WHERE id=2;
+
+
+-- JOIN == Combine two table and combine  the tables based on the foriegn key.
+-- INNER JOIN == It will get matching the records from the both the tables bases the foriegn key.
+-- all the order details and customer_details;
+
+
+-- LEFT JOIN = It will get all the records from the left table and only matching the records from the rigth table.
+-- RIGHT JOIN = It will get all the records from the RIGHT table and only matching the records from the LEFT table.
+-- FULL JOIN = It is combination of both the left and right join.
+
+SELECT * FROM orders  LEFT JOIN customers on orders.customer_ref=customers.id;
+
+SELECT * FROM orders  RIGHT JOIN customers on orders.customer_ref=customers.id;
+
+SELECT * FROM orders  FULL JOIN customers on orders.customer_ref=customers.id;
+
+
+
+SELECT * FROM orders  INNER JOIN customers on orders.customer_ref=customers.id;
+
+SELECT * FROM orders;
+SELECT * FROM customers;
+
+SELECT * FROM orders  LEFT JOIN customers on orders.customer_ref=customers.id
+UNION
+SELECT * FROM orders  RIGHT JOIN customers on orders.customer_ref=customers.id;
+
+
+
+
+
+  
+  
 
 
 
