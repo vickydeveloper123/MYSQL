@@ -90,7 +90,7 @@ SELECT
  empPD.empProjectCountry
  
  
- from vcube_employers as emp
+ from vcube_employerss as emp
  
   Inner join   empProjectDetailsListss1 as empPD  ON emp.empno=empPD.empno
 
@@ -98,4 +98,56 @@ SELECT
  Inner Join vcube_employers as empData on empData.empno=empData.empno and emp.empno= empPD.empProjectCountry;
  
  
+ 
+ SELECT * from  vcube_employerss order by empRole ;
+ 
+  SELECT * from  vcube_employerss order by empRole asc ;
+  
+    SELECT * from  vcube_employerss order by empRole desc ;
+    
+        SELECT * from  vcube_employerss order by field('empRole',
+        'Lucky',
+        'Ashish',
+        'Rafi',
+        'Pratik'
+        'SriVignesh'
+        ) ;
+        
+        
+SELECT * FROM vcube_employerss WHERE  empMobileNumber='53242' AND empRole='Lead';
+        
+SELECT * FROM vcube_employerss WHERE  empMobileNumber IS NULL;
+
+SELECT  distinct empRole,empno from vcube_employerss where  empno;
+
+SELECT * FROM vcube_employerss where empno=163 and empRole='Junior Software Engineer' ;
+
+SELECT * FROM vcube_employerss where empMobileNumber=54352  ;
+
+SELECT * FROM vcube_employerss;
+
+SELECT empno,empRole,empEmailId  from vcube_employerss
+ where empno  between 
+ 
+ 111 and 153 ;
+ 
+ SELECT empno,empRole,empEmailId  from vcube_employerss
+ where empno   
+ 
+ <=111   ;
+ 
+ 
+
+ 
+ 
+
+
+                
+                
+
+        
+        
+
+
+
  
